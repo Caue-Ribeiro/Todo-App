@@ -1,0 +1,113 @@
+@use '_size-functions' as f;
+@use '_variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Open+Sans:wght@400;700&family=Overpass:wght@200;400&family=Signika+Negative:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+body {
+    background-color: v.$primary;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.todo__container {
+    color: v.$white;
+
+    .todo__submit {
+        display: none;
+    }
+    .fa-plus {
+        font-weight: bold;
+        font-size: f.sizeEM(18);
+        cursor: pointer;
+    }
+
+    .todo__itemList {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        list-style: none;
+        gap: 10px;
+        margin-top: f.sizeEM(10);
+        font-size: f.sizeEM(18);
+        color: v.$white;
+
+        &--scratch {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        &--color {
+            background-color: v.$secondary;
+            border-radius: 10px;
+            padding: 0 0 0 f.sizeEM(5);
+
+            &:hover {
+                box-shadow: -5px 3px 1px hsla(278, 97%, 27%, 0.877);
+                transition: ease-in-out 0.2s;
+            }
+
+            .fa-check,
+            .fa-trash {
+                color: v.$white;
+            }
+        }
+
+        &--button {
+            cursor: pointer;
+            appearance: none;
+            border: 0;
+            padding: f.sizeEM(5);
+            margin-left: f.sizeEM(10);
+            background-color: v.$done;
+
+            &:hover {
+                transition: ease-in-out 0.2s;
+                background-color: v.$done-hover;
+                color: v.$hover-white;
+            }
+
+            &:last-child {
+                border-radius: 0 f.sizeEM(10) f.sizeEM(10) 0;
+                margin-left: 0px;
+                background-color: v.$trash;
+
+                &:hover {
+                    transition: ease-in-out 0.2s;
+                    background-color: v.$trash-hover;
+                    color: v.$hover-white;
+                }
+            }
+        }
+    }
+
+    #todo__title {
+        font-size: f.sizeEM(30);
+        color: v.$white;
+        margin: f.sizeEM(30) 0 f.sizeEM(10) 0;
+    }
+
+    .todo__filter {
+        margin-left: f.sizeEM(40);
+        padding: f.sizeEM(2);
+        background-color: v.$white;
+        cursor: pointer;
+    }
+
+    .alertStyle {
+        margin: auto;
+        background-color: red;
+        margin-top: f.sizeEM(10);
+        border-radius: 5px;
+        padding: 5px;
+        width: f.sizeEM(220);
+        font-size: f.sizeEM(20);
+    }
+}
