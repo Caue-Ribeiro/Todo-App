@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="shortcut icon"
+            href="./public/images/todo.png"
+            type="image/x-icon"
+        />
+        <script type="module" src="./public/js/main.js" defer></script>
+        <title>To Do App</title>
+    </head>
+    <body>
+        <main class="todo__container">
+            <form class="todo__form">
+                <h1 id="todo__title">To-do List</h1>
+                <input
+                    type="text"
+                    id="todo__input"
+                    placeholder="Type your task"
+                />
+                <button class="todo__submit fas fa-plus"></button>
+
+                <select name="todos" class="todo__filter">
+                    <option value="all">All</option>
+                    <option value="done">Done</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </form>
+            <ul class="todo__itemList"></ul>
+        </main>
+    </body>
+</html>
