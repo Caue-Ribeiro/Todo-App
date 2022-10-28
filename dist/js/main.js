@@ -71,21 +71,21 @@ document.addEventListener('click', e => {
 filters.addEventListener('change', e => {
     let select = e.target.value
     let allTasks = undrList.childNodes
+    let filter_option
 
     allTasks.forEach(item => {
-        switch (select) {
-            case 'all':
-                item.style.display = ''
-                break
-            case 'done':
+        filter_option = {
+            all: () => (item.style.display = ''),
+            done: () => {
                 if (item.classList.contains('done')) item.style.display = ''
                 else item.style.display = 'none'
-                break
-            case 'pending':
+            },
+            pending: () => {
                 if (!item.classList.contains('done')) item.style.display = ''
                 else item.style.display = 'none'
-                break
+            },
         }
+        filter_option[select]()
     })
 })
 
