@@ -32,6 +32,7 @@ document.addEventListener('click', e => {
     const item = event.parentElement
     let allTasks = undrList.childNodes
     let filterOPT = filters.options[filters.selectedIndex].value
+    let filter_selection
 
     if (event.classList.contains('doneBTN')) {
         item.classList.toggle('todo__itemList--scratch')
@@ -42,16 +43,17 @@ document.addEventListener('click', e => {
             : saveTaskOnLocal(item.textContent)
 
         allTasks.forEach(task => {
-            switch (filterOPT) {
-                case 'done':
+            filter_selection = {
+                done: () => {
                     if (!task.classList.contains('done'))
                         task.style.display = 'none'
-                    break
-                case 'pending':
+                },
+                pending: () => {
                     if (task.classList.contains('done'))
                         task.style.display = 'none'
-                    break
+                },
             }
+            filter_selection[filterOPT]()
         })
     }
 })
