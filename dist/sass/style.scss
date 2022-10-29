@@ -21,12 +21,14 @@ body {
     color: v.$white;
 
     .todo__submit {
-        display: none;
+        background-color: white;
+        border: none;
     }
     .fa-plus {
         font-weight: bold;
         font-size: f.sizeEM(18);
         cursor: pointer;
+        padding: 0px 1px 2.7px;
     }
 
     .todo__itemList {
